@@ -74,3 +74,11 @@ func (k *Kubernetes) Close() {
 		_ = k.CloseWatchKubeConfig()
 	}
 }
+
+func (k *Kubernetes) configuredNamespace() (namespace string) {
+	namespace, _, err := k.clientCmdConfig.Namespace()
+	if err != nil {
+		return ""
+	}
+	return namespace
+}

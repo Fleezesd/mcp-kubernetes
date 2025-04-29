@@ -52,6 +52,7 @@ func (s *Server) reloadKubernetesClient() error {
 	s.k = k
 	s.server.SetTools(slices.Concat(
 		s.initConfiguration(),
+		s.initNamespace(),
 	)...)
 	return nil
 }
